@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:favorite_places/providers/user_places.dart';
-
 class AddPlaceScreen extends ConsumerStatefulWidget {
   const AddPlaceScreen({Key? key}) : super(key: key);
   @override
@@ -9,7 +8,6 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
 }
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   final titlecontroller = TextEditingController();
-
   void saveplace(){
     final enteredtitle=titlecontroller.text;
     if(enteredtitle.isEmpty){
@@ -18,14 +16,12 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
     ref.read(userplacesprovider.notifier).addPlace(enteredtitle);
     Navigator.of(context).pop();
   }
-
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     titlecontroller.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
