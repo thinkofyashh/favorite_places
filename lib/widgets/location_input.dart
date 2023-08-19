@@ -73,12 +73,12 @@ class _LocationInputState extends State<LocationInput> {
    saveplace(lat!, long!);
   }
   void onselectmap()async {
-   final pickedlocation=await Navigator.of(context).push<LatLng>(MaterialPageRoute(builder: (ctx)=> const MapScreen() ));
+   final selectedlocation=await Navigator.of(context).push<LatLng>(MaterialPageRoute(builder: (ctx)=> const MapScreen() ));
 
-   if(pickedLocation==null){
+   if(selectedlocation==null){
      return;
    }
-   saveplace(pickedlocation!.latitude,pickedlocation!.longitude);
+   saveplace(selectedlocation.latitude,selectedlocation.longitude);
   }
   Widget build(BuildContext context) {
     Widget previewContent = Text(
